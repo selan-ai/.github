@@ -1,19 +1,35 @@
 ## Selan
 
-We keep credentials out of AI coding agents.
+More than half of all AI usage is code, and in most companies nobody can see that line. Selan sits between your team and the model providers, and solves three problems.
 
-Agents read your files, run your commands and talk to model providers on your behalf. Secrets leak into that flow in ways normal tooling never looks at: pasted into a chat, read out of a .env, or sitting in an instruction file the agent re-reads every session.
+### Every dollar has a name
+
+Add the accounts you already own: Claude, GPT, Vertex, OpenRouter. Every request goes to the right account and is logged with who ran it. Limits follow the person rather than the key, by day, week or month.
+
+### One sign-in, every model
+
+Claude, GPT, Kimi and whatever ships next, inside the tools your team already uses, on a single budget.
+
+### Secrets never reach the provider
+
+Keys and credentials are replaced in flight, so the provider never sees them.
+
+### Running it
+
+    curl -fsSL https://dl.selan.ai/install.sh | sh
+    selan login
+    selan claude
+
+One binary on macOS, Linux and Windows. Claude Code, Claude Desktop and Codex run exactly as they did before. Built and hosted in the EU.
 
 ### Open source
 
-**[whatileaked](https://github.com/selan-ai/whatileaked)** finds credentials your coding agent has already written to disk, across Claude Code, Codex and Cursor transcripts and memory files. Redacts them in place. No network calls, no telemetry, zero dependencies.
+[whatileaked](https://github.com/selan-ai/whatileaked) finds credentials your coding agent has already written to disk, across Claude Code, Codex and Cursor transcripts and the instruction files it re-reads every session, and redacts them in place. No network calls, no telemetry, no dependencies.
 
     npx whatileaked scan
 
-**[claude-ai-export](https://github.com/selan-ai/claude-ai-export)** exports your claude.ai chats, projects, attachments and scheduled tasks to a zip, and imports them into Claude Desktop. Runs entirely in your browser, nothing is uploaded.
+[claude-ai-export](https://github.com/selan-ai/claude-ai-export) exports your claude.ai chats, projects, attachments and scheduled tasks to a zip, and imports them into Claude Desktop. It runs in your browser and uploads nothing.
 
-### Product
+Both are MIT. Read the source before you trust either of them.
 
-[selan.ai](https://selan.ai) is a proxy that redacts credentials before they leave your machine, and routes your agent traffic across model providers.
-
-All of it is MIT and auditable. Read the source before you trust it.
+[selan.ai](https://selan.ai)
